@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinWise AI - Loan Eligibility & Financial Advisory</title>
+    <!-- Tailwind CSS for rich look -->
+    <script src="https://tailwindcss.com"></script>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen font-sans">
+    
+    <!-- Header/Nav Bar -->
+    <header class="border-b border-slate-800 bg-slate-900/80 sticky top-0 z-50 p-4">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <h1 class="text-xl font-bold text-cyan-400 flex items-center gap-2">🌐 FinWise AI Studio</h1>
+            <span class="px-3 py-1 text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded-full">UI Layer Live</span>
+        </div>
+    </header>
+
+    <!-- Main Dashboard Body -->
+    <main class="max-w-6xl mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Left Side: User Inputs Form -->
+        <div class="bg-slate-800/50 border border-slate-800 rounded-2xl p-6 shadow-xl">
+            <h2 class="text-lg font-bold mb-4 text-slate-300">Financial Profile Details</h2>
+            <form class="space-y-4">
+                <div>
+                    <label class="block text-xs text-slate-400 mb-1">MONTHLY NET INCOME ($)</label>
+                    <input type="number" value="5000" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2 text-slate-200 focus:outline-none focus:border-cyan-500">
+                </div>
+                <div>
+                    <label class="block text-xs text-slate-400 mb-1">MONTHLY DEBT OBLIGATIONS ($)</label>
+                    <input type="number" value="1000" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2 text-slate-200 focus:outline-none focus:border-cyan-500">
+                </div>
+                <div>
+                    <label class="block text-xs text-slate-400 mb-1">REQUESTED LOAN AMOUNT ($)</label>
+                    <input type="number" value="25000" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2 text-slate-200 focus:outline-none focus:border-cyan-500">
+                </div>
+                <div>
+                    <label class="block text-xs text-slate-400 mb-1">LOAN TENURE (YEARS)</label>
+                    <input type="number" value="5" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2 text-slate-200 focus:outline-none focus:border-cyan-500">
+                </div>
+                <button type="button" class="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold py-3 rounded-xl shadow-md">Check Eligibility</button>
+            </form>
+        </div>
+
+        <!-- Right Side: AI Analytics Result Console -->
+        <div class="bg-slate-800/50 border border-slate-800 rounded-2xl p-6 shadow-xl flex flex-col justify-between">
+            <div>
+                <h2 class="text-lg font-bold mb-4 text-slate-300">AI Advisory Insights</h2>
+                <div class="border border-slate-700/60 p-4 rounded-xl bg-slate-900/50 mb-4">
+                    <p class="text-sm text-slate-400 italic">Submit your profile data to see intelligent credit analysis and tailored recommendations here...</p>
+                </div>
+            </div>
+            <div class="bg-slate-900/80 p-3 rounded-lg border border-slate-800 text-xs text-slate-500 text-center">
+                Powered by Groq API Engine Matrix
+            </div>
+        </div>
+
+    </main>
+
+</body>
+</html>
