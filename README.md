@@ -13,20 +13,6 @@ The system structure below mirrors the exact workflow specification mandated by 
 
 <img width="1247" height="707" alt="image" src="https://github.com/user-attachments/assets/9f4be285-365a-471e-9032-17ce577bcd67" />
 
-# FinWise AI Platform Workflow
-
-## Project Architecture
-1. **Frontend**: HTML5, Tailwind CSS, JavaScript
-2. **Backend**: Python Flask Framework
-3. **AI Integration**: Groq API Engine
-
-## Core Modules
-- Loan Eligibility Analytics
-- Credit Risk Assessment
-- AI Financial Advisory System
-
-## Conclusion
-FinWise AI successfully delivers an automated framework to evaluate loan risks, compute exact DTI metrics, and stream responsive corporate-grade financial insights using AI processing models. The architecture provides high computational integrity and clear deployment blueprints.
 
 ---
 ## 🎨 Premium UI Design System (Epic 2 - Detailed Specifications)
@@ -45,4 +31,20 @@ The visual theme of FinWise AI is engineered utilizing a high-fidelity modern de
 ### 📱 Grid Fluid Layout & Adaptive Breakpoints
 * **Desktop Workspace Structure**: Generates a standard two-column environment pairing a static sidebar node (`width: 260px; fixed`) alongside fluid flexible data grids.
 * **Mobile Transform Adapter (`@media: 768px`)**: Collapses standard display models dynamically to establish linear vertical layouts, fluid viewport alignment, and native multi-wrap navigation matrix frames.
+
+---
+# FinWise AI Platform Workflow
+
+## Project Architecture
+1. **Frontend**: HTML5, Tailwind CSS, JavaScript
+2. **Backend**: Python Flask Framework
+3. **AI Integration**: Groq API Engine
+
+## Core Modules
+- Loan Eligibility Analytics
+- Credit Risk Assessment
+- AI Financial Advisory System
+
+## Conclusion
+FinWise AI successfully delivers an automated framework to evaluate loan risks, compute exact DTI metrics, and stream responsive corporate-grade financial insights using AI processing models. The architecture provides high computational integrity and clear deployment blueprints.
 
