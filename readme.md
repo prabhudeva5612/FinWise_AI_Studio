@@ -1,4 +1,31 @@
 # Define Project Scope & Workflow
+# FinWise AI: Intelligent Loan Eligibility, Credit Analysis & Financial Advisory Platform
+
+FinWise AI is a modern, serverless **BFSI (Banking, Financial Services, and Insurance)** web platform developed to simplify financial decision-making for users. The application automates loan evaluation, assesses borrowing risks, and generates conversational, AI-driven financial roadmaps through a single integrated interface. 
+
+Built on lightweight web standards, the platform bypasses complex backend server dependencies by orchestrating data streams directly between client-side operations, Advanced Large Language Models (Claude AI), and serverless cloud data layers.
+
+---
+
+## 📌 Project Scope & Domain Overview (Epic 1)
+
+The platform is engineered as a lightweight client-side model to eliminate backend server complexity while maintaining fast performance, scalability, and absolute responsiveness. 
+
+### 🎯 Core Platform Objectives
+* **Intelligent Evaluation**: Provide instantaneous, automated validation of applicant profiles.
+* **Risk Classification**: Deeply evaluate financial risk factors to classify borrower profiles accurately.
+* **Interactive Tooling**: Deliver real-time math models for exact loan repayment calculations.
+* **Contextual Guidance**: Offer direct financial advice powered by artificial intelligence to improve user credit health.
+
+---
+
+## 📌 Technical Architecture
+
+The system structure follows a client-heavy web application topology where the core frontend acts as the operational brain, executing mathematical engines locally while routing unstructured cognitive data to remote machine intelligence endpoints.
+
+### 📐 System Flow Diagram
+The system structure below mirrors the exact workflow specification mandated by the technical architecture rules:
+
 
 
 
