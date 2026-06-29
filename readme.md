@@ -5,7 +5,6 @@ FinWise AI is a modern, serverless **BFSI (Banking, Financial Services, and Insu
 
 Built on lightweight web standards, the platform bypasses complex backend server dependencies by orchestrating data streams directly between client-side operations, Advanced Large Language Models (Claude AI), and serverless cloud data layers.
 
----
 
 ## 📌 Project Scope & Domain Overview (Epic 1)
 
@@ -17,7 +16,6 @@ The platform is engineered as a lightweight client-side model to eliminate backe
 * **Interactive Tooling**: Deliver real-time math models for exact loan repayment calculations.
 * **Contextual Guidance**: Offer direct financial advice powered by artificial intelligence to improve user credit health.
 
----
 
 ## 📌 Technical Architecture
 
@@ -27,7 +25,7 @@ The system structure follows a client-heavy web application topology where the c
 The system structure below mirrors the exact workflow specification mandated by the technical architecture rules:
 
 
-
+---
 
 ## 🛠️ Technology Stack Justification & Selection Details
 
