@@ -1,5 +1,5 @@
 # Define Project Scope & Workflow
-# FinWise AI: Intelligent Loan Eligibility, Credit Analysis & Financial Advisory Platform
+## FinWise AI: Intelligent Loan Eligibility, Credit Analysis & Financial Advisory Platform
 
 FinWise AI is a modern, serverless **BFSI (Banking, Financial Services, and Insurance)** web platform developed to simplify financial decision-making for users. The application automates loan evaluation, assesses borrowing risks, and generates conversational, AI-driven financial roadmaps through a single integrated interface. 
 
