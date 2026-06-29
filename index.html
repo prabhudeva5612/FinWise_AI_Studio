@@ -3,60 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FinWise AI - Loan Eligibility & Financial Advisory</title>
-    <!-- Tailwind CSS for rich look -->
-    <script src="https://tailwindcss.com"></script>
+    <title>FinWise AI - Intelligent BFSI Platform</title>
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link href="https://googleapis.com" rel="stylesheet">
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #070b19 0%, #0f172a 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            overflow-x: hidden;
+        }
+
+        /* Side Navigation Bar - Glassmorphism */
+        nav {
+            width: 260px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-right: 1px rgba(255, 255, 255, 0.05) solid;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        nav .logo {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #3b82f6;
+            padding-left: 15px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        nav ul li a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 12px 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            color: #ffffff;
+            background: rgba(59, 130, 246, 0.1);
+            border-left: 4px solid #3b82f6;
+        }
+
+        /* Main Content Container */
+        main {
+            flex: 1;
+            padding: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            max-width: 650px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-section h1 {
+            font-size: 56px;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #ffffff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-section p {
+            color: #94a3b8;
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 35px;
+        }
+
+        .btn-get-started {
+            display: inline-block;
+            background: #3b82f6;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 14px 30px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 8px;
+            box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .btn-get-started:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
+        }
+
+        /* Responsive Layout Grid/Flexbox adjustments */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            nav {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px rgba(255, 255, 255, 0.05) solid;
+                padding: 20px;
+                gap: 20px;
+            }
+            nav ul {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+            main {
+                padding: 40px 20px;
+            }
+            .hero-section h1 {
+                font-size: 36px;
+            }
+        }
+    </style>
 </head>
-<body class="bg-slate-900 text-slate-100 min-h-screen font-sans">
-    
-    <!-- Header/Nav Bar -->
-    <header class="border-b border-slate-800 bg-slate-900/80 sticky top-0 z-50 p-4">
-        <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <h1 class="text-xl font-bold text-cyan-400 flex items-center gap-2">🌐 FinWise AI Studio</h1>
-            <span class="px-3 py-1 text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded-full">UI Layer Live</span>
-        </div>
-    </header>
+<body>
 
-    <!-- Main Dashboard Body -->
-    <main class="max-w-6xl mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-2 gap-8">
-        
-        <!-- Left Side: User Inputs Form -->
-        <div class="bg-slate-800/50 border border-slate-800 rounded-2xl p-6 shadow-xl">
-            <h2 class="text-lg font-bold mb-4 text-slate-300">Financial Profile Details</h2>
-            <form class="space-y-4">
-                <div>
-                    <label class="block text-xs text-slate-400 mb-1">MONTHLY NET INCOME ($)</label>
-                    <input type="number" value="5000" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2 text-slate-200 focus:outline-none focus:border-cyan-500">
-                </div>
-                <div>
-                    <label class="block text-xs text-slate-400 mb-1">MONTHLY DEBT OBLIGATIONS ($)</label>
-                    <input type="number" value="1000" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2 text-slate-200 focus:outline-none focus:border-cyan-500">
-                </div>
-                <div>
-                    <label class="block text-xs text-slate-400 mb-1">REQUESTED LOAN AMOUNT ($)</label>
-                    <input type="number" value="25000" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2 text-slate-200 focus:outline-none focus:border-cyan-500">
-                </div>
-                <div>
-                    <label class="block text-xs text-slate-400 mb-1">LOAN TENURE (YEARS)</label>
-                    <input type="number" value="5" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2 text-slate-200 focus:outline-none focus:border-cyan-500">
-                </div>
-                <button type="button" class="w-full bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold py-3 rounded-xl shadow-md">Check Eligibility</button>
-            </form>
-        </div>
+    <!-- Responsive Navigation Bar -->
+    <nav>
+        <div class="logo">FINAI</div>
+        <ul>
+            <li><a href="index.html" class="active"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li><a href="eligibility.html"><i class="fa-solid fa-file-invoice-dollar"></i> Eligibility</a></li>
+            <li><a href="credit-score.html"><i class="fa-solid fa-chart-line"></i> Credit Score</a></li>
+            <li><a href="emi.html"><i class="fa-solid fa-calculator"></i> EMI</a></li>
+            <li><a href="tips.html"><i class="fa-solid fa-lightbulb"></i> Tips</a></li>
+        </ul>
+    </nav>
 
-        <!-- Right Side: AI Analytics Result Console -->
-        <div class="bg-slate-800/50 border border-slate-800 rounded-2xl p-6 shadow-xl flex flex-col justify-between">
-            <div>
-                <h2 class="text-lg font-bold mb-4 text-slate-300">AI Advisory Insights</h2>
-                <div class="border border-slate-700/60 p-4 rounded-xl bg-slate-900/50 mb-4">
-                    <p class="text-sm text-slate-400 italic">Submit your profile data to see intelligent credit analysis and tailored recommendations here...</p>
-                </div>
-            </div>
-            <div class="bg-slate-900/80 p-3 rounded-lg border border-slate-800 text-xs text-slate-500 text-center">
-                Powered by Groq API Engine Matrix
-            </div>
+    <!-- Main Content Area -->
+    <main>
+        <div class="hero-section">
+            <h1>AI Loan Eligibility<br>Checker</h1>
+            <p>Smart BFSI platform powered with AI-inspired financial analysis, loan prediction, EMI calculation, and credit intelligence.</p>
+            <a href="eligibility.html" class="btn-get-started">Get Started</a>
         </div>
-
     </main>
 
 </body>
