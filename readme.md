@@ -23,6 +23,8 @@ The system structure follows a client-heavy web application topology where the c
 
 ### 📐 System Flow Diagram
 The system structure below mirrors the exact workflow specification mandated by the technical architecture rules:
+<img width="1247" height="707" alt="image" src="https://github.com/user-attachments/assets/9f4be285-365a-471e-9032-17ce577bcd67" />
+
 
 
 ---
