@@ -39,3 +39,18 @@ The core components of the FinWise AI platform were selected based on developmen
 * **Advanced AI Logic (Claude AI API)**: Provides direct context-aware reasoning engines to generate customized loan guidance profiles and continuous automated financial insights.
 * **Serverless Storage Core (Google Apps Script & Google Sheets)**: Replaces complex physical database engines entirely. Allows direct JSON data writing into live spreadsheets, tracking client records completely serverless.
 * **Visual Enhancements (Font Awesome & Google Fonts)**: Integrates modern vector icon sets and highly readable typography layouts to provide a clean, accessible user interface experience.
+---
+# FinWise AI Platform Workflow
+
+## Project Architecture
+1. **Frontend**: HTML5, Tailwind CSS, JavaScript
+2. **Backend**: Python Flask Framework
+3. **AI Integration**: Groq API Engine
+
+## Core Modules
+- Loan Eligibility Analytics
+- Credit Risk Assessment
+- AI Financial Advisory System
+
+## Conclusion
+FinWise AI successfully delivers an automated framework to evaluate loan risks, compute exact DTI metrics, and stream responsive corporate-grade financial insights using AI processing models. The architecture provides high computational integrity and clear deployment blueprints.
