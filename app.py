@@ -1,71 +1,97 @@
-from flask import Flask, render_template, request, jsonify
 import os
+from flask import Flask, request, jsonify, send_from_directory
+from anthropic import Anthropic
 import requests
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='.')
 
-# Groq API Configuration (SmartBridge Track Requirement)
-GROQ_API_URL = "https://groq.com"
-GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "gsk_mock_key_for_smartbridge_eval_vibe")
+# ==========================================
+# CONFIGURATION & API KEYS
+# Keep these safe! Use environment variables.
+# ==========================================
+CLAUDE_API_KEY = os.environ.get("ANTHROPIC_API_KEY", "your-claude-api-key-here")
+# Google Sheets Webhook URL from your Apps Script Deployment
+GOOGLE_SHEETS_WEBHOOK_URL = "https://script.google.com/macros/s/XXXXX/exec" 
 
-def get_ai_financial_advice(status, dti, income, loan_amount):
-    """Generates structured fintech recommendations using AI engine prompts"""
-    try:
-        headers = {
-            "Authorization": f"Bearer {GROQ_API_KEY}",
-            "Content-Type": "application/json"
-        }
-        prompt = f"Act as a FinTech Advisor. A user with monthly net income ${income} and Debt-to-Income ratio {dti}% applied for a ${loan_amount} loan. Result status is {status}. Provide 3 short financial advisory bullet points to manage their capital footprint safely."
-        
-        payload = {
-            "model": "llama3-8b-8192",
-            "messages": [{"role": "user", "content": prompt}],
-            "temperature": 0.3
-        }
-        response = requests.post(GROQ_API_URL, json=payload, headers=headers, timeout=10)
-        if response.status_code == 200:
-            return response.json()['choices']['message']['content']
-    except:
-        pass
-    return "✦ Maintain debt footprint under 30% baseline.\n✦ Allocate supplement capital to active loan buffers.\n✦ Build an emergency fund covering 6 months of external obligations."
+# Initialize the Anthropic client
+anthropic_client = Anthropic(api_key=CLAUDE_API_KEY)
 
-def evaluate_loan_risk(income, debts, amount, tenure):
-    dti_ratio = (debts / income) * 100 if income > 0 else 100
-    max_allowable_loan = income * 60
-    
-    if dti_ratio > 45:
-        return "Rejected", dti_ratio, "Your Debt-to-Income ratio is too high (Above 45%). Try reducing your monthly debts."
-    if amount > max_allowable_loan:
-        return "Rejected", dti_ratio, "Requested loan amount exceeds your eligible limit based on your income footprint."
-        
-    estimated_interest = 9.5 if dti_ratio < 25 else 11.5
-    return "Approved", dti_ratio, f"Profile parameters look stable! Recommended interest: {estimated_interest}%."
+
+# ==========================================
+# ROUTING FOR FRONTEND FILES
+# ==========================================
 
 @app.route('/')
-def home():
-    return render_template('index.html')
+def index():
+    """Serves the main index.html file."""
+    return send_from_directory(app.static_folder, 'index.html')
 
-@app.route('/analyze-eligibility', methods=['POST'])
-def process_eligibility_metrics():
+@app.route('/<path:path>')
+def serve_static(path):
+    """Serves styles.css, script.js, or images if requested."""
+    return send_from_directory(app.static_folder, path)
+
+
+# ==========================================
+# EPIC 4: BACKEND INTEGRATIONS
+# ==========================================
+
+@app.route('/api/chat', methods=['POST'])
+def chat_with_claude():
+    """
+    Handles AI Financial Advisory requests by forwarding the user prompt
+    to Claude AI securely without exposing the API key to the frontend.
+    """
+    data = request.json or {}
+    user_message = data.get('message', '')
+
+    if not user_message:
+        return jsonify({"error": "Message cannot be empty"}), 400
+
     try:
-        data = request.json
-        income = float(data.get('monthly_income', 0))
-        debts = float(data.get('monthly_debts', 0))
-        loan_amount = float(data.get('loan_amount', 0))
-        tenure = float(data.get('loan_tenure', 0))
+        # Request a response from Claude AI
+        response = anthropic_client.messages.create(
+            model="claude-3-5-sonnet-20241022",
+            max_tokens=500,
+            temperature=0.3,
+            system="You are FinWise AI, an intelligent financial advisor. Provide concise, helpful advice on loans, EMIs, and credit scores.",
+            messages=[
+                {"role": "user", "content": user_message}
+            ]
+        )
         
-        status, dti, comments = evaluate_loan_risk(income, debts, loan_amount, tenure)
-        ai_advice = get_ai_financial_advice(status, dti, income, loan_amount)
-        
-        return jsonify({
-            "status": "Success",
-            "eligibility_status": status,
-            "calculated_dti": round(dti, 2),
-            "justification_text": comments,
-            "ai_advisory_tips": ai_advice
-        })
+        # Extract the text content from the response object
+        ai_reply = response.content[0].text
+        return jsonify({"reply": ai_reply})
+
     except Exception as e:
-        return jsonify({"status": "Error", "message": str(e)}), 400
+        return jsonify({"error": f"Failed to communicate with Claude AI: {str(e)}"}), 500
+
+
+@app.route('/api/log-finance', methods=['POST'])
+def log_to_google_sheets():
+    """
+    Receives financial parameters from the client and forwards them
+    to your Google Sheets Webhook App Script.
+    """
+    data = request.json or {}
+    
+    if not GOOGLE_SHEETS_WEBHOOK_URL or "XXXXX" in GOOGLE_SHEETS_WEBHOOK_URL:
+        return jsonify({"status": "mock_success", "message": "Backend received data, but Google Sheets URL is not configured yet."})
+
+    try:
+        # Securely forward the payload to the Google Sheets Apps Script Webhook
+        response = requests.post(GOOGLE_SHEETS_WEBHOOK_URL, json=data, timeout=10)
+        
+        if response.status_code == 200:
+            return jsonify({"status": "success", "message": "Data successfully sent to Google Sheets"})
+        else:
+            return jsonify({"status": "error", "message": "Google Sheets script rejected data"}), response.status_code
+
+    except Exception as e:
+        return jsonify({"status": "error", "message": f"Connection to Sheets failed: {str(e)}"}), 500
+
 
 if __name__ == '__main__':
+    # Run the app locally on port 5000
     app.run(debug=True, port=5000)
