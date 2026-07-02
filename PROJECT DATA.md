@@ -47,6 +47,7 @@ The result is displayed in a visually highlighted animated panel to improve user
 ## 3. EMI Calculator
 
 The EMI Calculator was developed to help users estimate their monthly loan repayment amount before applying for loans. The module accepts loan amount, interest rate, and loan tenure as inputs.
+
 <img width="611" height="218" alt="image" src="https://github.com/user-attachments/assets/fc96eed2-109d-4437-82c5-308e8b3e8734" />
 
 ### The EMI Formula
