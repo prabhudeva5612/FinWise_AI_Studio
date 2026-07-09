@@ -1,0 +1,279 @@
+/* --- FinWise AI Global Glassmorphism Design System --- */
+:root {
+    --bg-gradient: linear-gradient(135deg, #0b0f19 0%, #111827 100%);
+    --glass-bg: rgba(17, 24, 39, 0.75);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+    --primary-glow: linear-gradient(90deg, #2563eb, #3b82f6);
+    --text-main: #f3f4f6;
+    --text-muted: #9ca3af;
+    --accent-green: #10b981;
+    --accent-red: #ef4444;
+    --radius-lg: 16px;
+    --radius-md: 8px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background: var(--bg-gradient);
+    color: var(--text-main);
+    min-height: 100vh;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Global Navbar Layout --- */
+.navbar {
+    background: var(--glass-bg);
+    border-bottom: 1px solid var(--glass-border);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1.2rem 2rem;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo span { color: #3b82f6; }
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+}
+
+/* --- Multi-Page Workspace Grid --- */
+.dashboard-container {
+    display: flex;
+    flex: 1;
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.sidebar {
+    width: 280px;
+    background: rgba(17, 24, 39, 0.4);
+    border-right: 1px solid var(--glass-border);
+    padding: 2rem 1.5rem;
+}
+
+.sidebar-menu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.sidebar-menu a {
+    text-decoration: none;
+}
+
+.sidebar-menu li {
+    padding: 0.8rem 1.2rem;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-weight: 500;
+}
+
+.sidebar-menu li:hover, .sidebar-menu li.active {
+    background: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    border-left: 4px solid #3b82f6;
+}
+
+.content-area {
+    flex: 1;
+    padding: 2.5rem;
+}
+
+/* --- Panels & Forms UI System --- */
+.glass-panel {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.hero-card {
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.15) 0%, rgba(17, 24, 39, 0.7) 100%);
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    min-height: 280px;
+    display: flex;
+    align-items: center;
+}
+
+.hero-text h1 {
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin: 0.8rem 0;
+    background: linear-gradient(to right, #fff, #9ca3af);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-text p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    max-width: 600px;
+    margin-bottom: 1.8rem;
+    line-height: 1.6;
+}
+
+.badge {
+    background: rgba(59, 130, 246, 0.2);
+    color: #60a5fa;
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.user-welcome-badge {
+    background: rgba(16, 185, 129, 0.15);
+    color: #34d399;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-md);
+    margin-bottom: 1.5rem;
+    display: inline-block;
+    font-weight: 500;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.grid-form {
+    display: grid;
+    gap: 1.2rem;
+    max-width: 480px;
+    margin-top: 1.5rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.input-group label {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.input-group input {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    padding: 0.8rem 1rem;
+    border-radius: var(--radius-md);
+    color: #fff;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 12px rgba(59, 130, 246, 0.3);
+}
+
+.btn-primary, .btn-submit {
+    background: var(--primary-glow);
+    color: #fff;
+    border: none;
+    padding: 0.8rem 1.8rem;
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: fit-content;
+}
+
+.btn-primary:hover, .btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
+}
+
+.result-box {
+    margin-top: 1.5rem;
+    padding: 1.2rem;
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+.result-box.success { background: rgba(16, 185, 129, 0.15); border: 1px solid var(--accent-green); color: #34d399; }
+.result-box.danger { background: rgba(239, 68, 68, 0.15); border: 1px solid var(--accent-red); color: #f87171; }
+
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.tip-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--glass-border);
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    line-height: 1.5;
+}
+
+.tip-card i { color: #3b82f6; font-size: 1.3rem; margin-bottom: 0.8rem; display: block; }
+
+.fade-in { animation: fadeIn 0.4s ease-in-out forwards; }
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
