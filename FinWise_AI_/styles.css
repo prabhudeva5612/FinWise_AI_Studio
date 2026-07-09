@@ -237,6 +237,7 @@ body {
     align-items: center;
     gap: 0.5rem;
     width: fit-content;
+    text-decoration: none;
 }
 
 .btn-primary:hover, .btn-submit:hover {
@@ -254,6 +255,7 @@ body {
 
 .result-box.success { background: rgba(16, 185, 129, 0.15); border: 1px solid var(--accent-green); color: #34d399; }
 .result-box.danger { background: rgba(239, 68, 68, 0.15); border: 1px solid var(--accent-red); color: #f87171; }
+.hide { display: none !important; }
 
 .tips-grid {
     display: grid;
